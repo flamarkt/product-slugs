@@ -1,0 +1,48 @@
+{
+    "name": "flamarkt/product-slugs",
+    "description": "Unique slugs for product URLs.",
+    "keywords": [
+        "flarum",
+        "flamarkt",
+        "marketplace",
+        "ecommerce",
+        "slug",
+        "url"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.0",
+        "flamarkt/core": "^0.1.0"
+    },
+    "authors": [
+        {
+            "name": "Flamarkt",
+            "homepage": "https://flamarkt.org/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/flamarkt/product-slugs/issues",
+        "source": "https://github.com/flamarkt/product-slugs"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flamarkt\\ProductSlugs\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Product Slugs",
+            "category": "flamarkt",
+            "icon": {
+                "name": "fas fa-italic",
+                "backgroundColor": "#266a13",
+                "color": "#fff"
+            }
+        },
+        "flamarkt-backoffice": {
+            "showInBackoffice": true,
+            "hideFromAdmin": true
+        }
+    }
+}

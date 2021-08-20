@@ -1,0 +1,5 @@
+flamarkt-product-slugs:
+    backoffice:
+        products:
+            field:
+                slug: Unique URL Slug
