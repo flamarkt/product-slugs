@@ -1,18 +1,17 @@
 import {extend} from 'flarum/common/extend';
-import ItemList from 'flarum/common/utils/ItemList';
 import ProductShowPage from 'flamarkt/core/backoffice/pages/ProductShowPage';
 import Product from 'flamarkt/core/common/models/Product';
 
 app.initializers.add('flamarkt-product-slugs', () => {
-    extend(ProductShowPage.prototype, 'oninit', function (this: ProductShowPage) {
+    extend(ProductShowPage.prototype, 'oninit', function () {
         this.slug = '';
     });
 
-    extend(ProductShowPage.prototype, 'show', function (this: ProductShowPage, returnValue, product: Product) {
+    extend(ProductShowPage.prototype, 'show', function (returnValue, product: Product) {
         this.slug = product.attribute('slugEdit') || '';
     });
 
-    extend(ProductShowPage.prototype, 'fields', function (this: ProductShowPage, fields: ItemList) {
+    extend(ProductShowPage.prototype, 'fields', function (fields) {
         fields.add('slug', m('.Form-group', [
             m('label', app.translator.trans('flamarkt-product-slugs.backoffice.products.field.slug')),
             m('input.FormControl', {
@@ -27,7 +26,7 @@ app.initializers.add('flamarkt-product-slugs', () => {
         ]), 49);
     });
 
-    extend(ProductShowPage.prototype, 'data', function (this: ProductShowPage, data) {
+    extend(ProductShowPage.prototype, 'data', function (data: any) {
         data.slug = this.slug;
     });
 });
