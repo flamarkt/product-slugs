@@ -12,7 +12,8 @@ class SaveProduct
         $attributes = (array)Arr::get($event->data, 'data.attributes');
 
         if (Arr::exists($attributes, 'slug')) {
-            $event->product->slug = Arr::get($attributes, 'slug');
+            // Replace empty strings with null because that's how the validator will have read nullable
+            $event->product->slug = Arr::get($attributes, 'slug') ?: null;
         }
     }
 }
