@@ -11,11 +11,14 @@ class SlugDriver implements SlugDriverInterface
 {
     public function toSlug(AbstractModel $instance): string
     {
-        return $instance->slug ?? '';
+        return $instance->slug ?? $instance->uid;
     }
 
     public function fromSlug(string $slug, User $actor): AbstractModel
     {
-        return Product::whereVisibleTo($actor)->where('slug', $slug)->firstOrFail();
+        return Product::whereVisibleTo($actor)
+            ->where('slug', $slug)
+            ->orWhere('uid', $slug)
+            ->firstOrFail();
     }
 }
