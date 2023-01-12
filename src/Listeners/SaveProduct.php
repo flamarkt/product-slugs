@@ -9,7 +9,7 @@ class SaveProduct
 {
     public function handle(Saving $event)
     {
-        $attributes = (array)Arr::get($event->data, 'data.attributes');
+        $attributes = (array)Arr::get($event->data, 'attributes');
 
         if (Arr::exists($attributes, 'slug')) {
             // Replace empty strings with null because that's how the validator will have read nullable
